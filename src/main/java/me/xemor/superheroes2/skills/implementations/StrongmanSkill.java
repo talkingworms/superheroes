@@ -33,7 +33,7 @@ public class StrongmanSkill extends SkillImplementation {
         for (SkillData skillData : skillDatas) {
             StrongmanData strongmanData = (StrongmanData) skillData;
             Entity topEntity = getTopEntity(e.getPlayer());
-            if (!e.getRightClicked().equals(topEntity) && countPassengers(topEntity) <= strongmanData.getMaxPassengers()) {
+            if (player.isSneaking() && !e.getRightClicked().equals(topEntity) && countPassengers(topEntity) <= strongmanData.getMaxPassengers()) {
                 topEntity.addPassenger(e.getRightClicked());
             }
             if (e.getRightClicked() instanceof Vehicle) {
